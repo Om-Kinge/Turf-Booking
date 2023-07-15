@@ -1,0 +1,84 @@
+<<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Login Page</title>
+
+<link rel="stylesheet" type="text/css" href="pro.css">
+<link rel="stylesheet" type="text/css" href="teacher.html">
+<link rel="stylesheet" type="text/css" href="student.html">
+</head>
+<body>
+    <div class="LOGIN_PAGE">
+        <div class="form">
+        <form class="register_form">
+       
+        <input type="text" placeholder ="id"><br>
+        <input type="text" placeholder ="password"><br>
+        <div class="usertype">
+       
+        <select name="user_type">
+        <option value="Teacher">Teacher</option>
+        <option value="Student">Student</option>
+        </select>
+        </div>
+       
+        <button>Create</button>
+        <p class="message">Already Registered? <a href="#">Login</a>
+        </p>
+        </form>
+       
+       
+        <form class="login_form">
+        <input type="text" placeholder="id" id="id">
+        <input type="password" placeholder ="password" id="password"><br>
+        <div class="Usertype">
+        <select name="user_type" id="usertype">
+        <option value="Teacher">Teacher</option>
+        <option value="Student">Student</option>
+        </select>
+        </div>
+        <button onclick="login()">login</button>
+        <p class="message">Not Registered? <a href="#">Registered</a></p>  
+        </div>
+        </div>
+
+<script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
+<script>
+$('.message a').click(function() {
+// body...
+$('form').animate({height:"toggle",opacity:"toggle"},"slow");
+});
+
+function register(){
+var id=document.getElementById("idr").value;
+var pass=document.getElementById("passwordr").value;
+var usertype=document.getElementById("usertyper").value;
+if (id==="teacher@123" && pass==="t123") {
+    window.location.href="teacher.html";
+}
+
+else if (id=="student@123" && pass=="s123") {
+    window.location.href="student.html";
+}
+}
+
+function login(){
+    var id=document.getElementById("id").value;
+    var pass=document.getElementById("password").value;
+    var usertype=document.getElementById("usertype").value;  
+    if (id==="teacher@123"  && pass==="t123") {
+        alert("");
+        location.replace("teacher.html");
+    }
+    else if (id==="student@123" && pass==="s123") {
+    location.replace("student.html");
+}
+}
+$(".login_form").submit(function(e) {
+    e.preventDefault(); // <==stop page refresh==>
+});
+</script>
+</body>
+</html>
